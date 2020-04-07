@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 
 public interface JsonPlaceholderApi {
 
-    @GET("posts") // annotation
+    @GET("regions") // annotation
     // método con una llamada de retrofit
     Call<List<Post>> getPost();
 }

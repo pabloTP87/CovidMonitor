@@ -1,40 +1,34 @@
 package com.covid.covidmonitor.Model;
 
 public class Post {
-    private int userId;
-    private int id;
-    private String title;
-    private String body;
+    private int confirmed;
+    private int deaths;
+    private String last_updated;
+    private int new_daily_cases;
+    private String region;
+    private Object regionInfo;
 
-    public int getUserId(){
-        return  userId;
+    public int getConfirmed() {
+        return confirmed;
     }
 
-    public void  setUserId(int userId){
-        this.userId = userId;
+    public int getDeaths() {
+        return deaths;
     }
 
-    public int getId() {
-        return id;
+    public String getLast_updated() {
+        return last_updated;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getNew_daily_cases() {
+        return new_daily_cases;
     }
 
-    public String getTitle() {
-        return title;
+    public String getRegion() {
+        return region;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
+    public Object getRegionInfo() {
+        return regionInfo;
     }
 }

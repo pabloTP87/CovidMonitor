@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     // compile options se agregó ya que retrofit en la versión usada es compatible con Java 8
-    compileOptions{
+    compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }

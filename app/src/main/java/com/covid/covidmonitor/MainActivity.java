@@ -3,6 +3,8 @@ package com.covid.covidmonitor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.covid.covidmonitor.Interface.JsonPlaceholderApi;
@@ -18,20 +20,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView jsonTxt;
+
+    private TextView jsonText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        jsonTxt = findViewById(R.id.jsonText);
+        jsonText = findViewById(R.id.jsonText);
 
         getPost();
     }
 
     private void getPost(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
+                .baseUrl("https://chile-coronapi.herokuapp.com/api/v2/latest/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if(!response.isSuccessful()){
-                    jsonTxt.setText("Codigo: "+response.code());
+                    jsonText.setText("Codigo: "+response.code());
                 }
 
                 List<Post> postList = response.body();
@@ -52,18 +55,20 @@ public class MainActivity extends AppCompatActivity {
                 assert postList != null;
                 for (Post post: postList) {
                     String content = "";
-                    content += "userID: "+ post.getUserId()  + "\n";
-                    content += "id: "+ post.getId()  + "\n";
-                    content += "tittle: "+ post.getTitle()  + "\n";
-                    content += "Body: "+ post.getBody()  + "\n\n";
+                    content += "confirmados: "+ post.getConfirmed()  + "\n";
+                    content += "muertes: "+ post.getDeaths()  + "\n";
+                    content += "fecha: "+ post.getLast_updated()  + "\n";
+                    content += "nuevos infectados: "+ post.getNew_daily_cases()  + "\n";
+                    content += "region: "+ post.getRegion()  + "\n\n";
+                    //content += "ubicación: "+ post.getRegionInfo()  + "\n\n";
 
-                    jsonTxt.append(content);
+                    jsonText.append(content);
                 }
             }
 
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
-                    jsonTxt.setText(t.getMessage());
+                    jsonText.setText(t.getMessage());
             }
         });
     }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CovidMonitor</string>
+    <string name="covid_monitor">Covid monitor</string>
+    <string name="desc_logo">Logo de la app</string>
 </resources>
