@@ -2,4 +2,14 @@
     <string name="app_name">CovidMonitor</string>
     <string name="covid_monitor">Covid monitor</string>
     <string name="desc_logo">Logo de la app</string>
+    <string name="chile">Chile</string>
+    <string name="infectados">Infectados:</string>
+    <string name="nuevos_casos">Nuevos casos:</string>
+    <string name="muertes">Muertes:</string>
+    <string name="recuperados">Recuperados:</string>
+    <string name="fecha">Fecha de actualización</string>
+    <string name="notificar">Notificar actualización de datos</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

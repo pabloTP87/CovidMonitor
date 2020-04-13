@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.PaisFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="342dp"
+        android:layout_height="449dp"
+        android:background="@color/whiteColor"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="32dp"
+            android:paddingTop="24dp"
+            android:paddingEnd="32dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                android:gravity="center"
+                android:text="@string/chile"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/infectados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:drawableStart="@drawable/infectados_img"
+                android:drawablePadding="10dp"
+                android:text="@string/infectados"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nuevos_casos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:drawableStart="@drawable/upload_img"
+                android:drawablePadding="10dp"
+                android:text="@string/nuevos_casos"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/muertes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:drawableStart="@drawable/cruz_img"
+                android:drawablePadding="14dp"
+                android:text="@string/muertes"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/recuperados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                android:drawableStart="@drawable/health_care_img"
+                android:drawablePadding="10dp"
+                android:text="@string/recuperados"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                android:drawableTop="@drawable/calendar_img"
+                android:gravity="center"
+                android:text="@string/fecha"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/check_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/notificar"
+                android:textColor="@color/fontColor"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
