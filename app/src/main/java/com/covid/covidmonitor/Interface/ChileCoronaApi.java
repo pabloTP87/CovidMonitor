@@ -1,15 +1,15 @@
 package com.covid.covidmonitor.Interface;
 
-import com.covid.covidmonitor.Model.Post;
+import com.covid.covidmonitor.Model.CountryUpdate;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface JsonPlaceholderApi {
+public interface ChileCoronaApi {
 
-    @GET("regions") // annotation
+    @GET("nation") // annotation
     // método con una llamada de retrofit
-    Call<List<Post>> getPost();
+    Call<CountryUpdate> getPost();
 }

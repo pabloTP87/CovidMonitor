@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_pais"
+        android:title="@string/pais"
+        android:icon="@drawable/location_black_24dp" />
+
+    <item
+        android:id="@+id/menu_region"
+        android:title="@string/region"
+        android:icon="@drawable/pin_drop_black_24dp"/>
+</menu>

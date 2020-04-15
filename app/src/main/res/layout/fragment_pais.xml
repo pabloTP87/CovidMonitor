@@ -18,6 +18,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ProgressBar
+            android:id="@+id/country_data_load"
+            android:indeterminate="true"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,13 +35,14 @@
             android:paddingEnd="32dp">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/tittle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="28dp"
                 android:gravity="center"
                 android:text="@string/chile"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/infectados"
@@ -43,7 +52,8 @@
                 android:drawableStart="@drawable/infectados_img"
                 android:drawablePadding="10dp"
                 android:text="@string/infectados"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/nuevos_casos"
@@ -53,7 +63,8 @@
                 android:drawableStart="@drawable/upload_img"
                 android:drawablePadding="10dp"
                 android:text="@string/nuevos_casos"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/muertes"
@@ -63,7 +74,8 @@
                 android:drawableStart="@drawable/cruz_img"
                 android:drawablePadding="14dp"
                 android:text="@string/muertes"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/recuperados"
@@ -73,24 +85,28 @@
                 android:drawableStart="@drawable/health_care_img"
                 android:drawablePadding="10dp"
                 android:text="@string/recuperados"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone"/>
 
             <TextView
+                android:id="@+id/date_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="28dp"
                 android:drawableTop="@drawable/calendar_img"
                 android:gravity="center"
                 android:text="@string/fecha"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone"/>
 
-            <CheckBox
+            <!--<CheckBox
                 android:id="@+id/check_notification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/notificar"
                 android:textColor="@color/fontColor"
-                android:textSize="18sp" />
+                android:textSize="18sp" />-->
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
