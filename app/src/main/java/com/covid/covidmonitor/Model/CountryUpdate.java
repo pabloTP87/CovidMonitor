@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class CountryUpdate {
 
-    //@SerializedName("confirmed")
+    @SerializedName("confirmed")
     private String confirmed;
     @SerializedName("confirmed_per_100k")
     private Float confirmed_per_100k;
