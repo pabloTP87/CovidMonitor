@@ -1,119 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PaisFragment">
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="342dp"
-        android:layout_height="449dp"
-        android:background="@color/whiteColor"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+        android:id="@+id/vistas"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".fragments.PaisFragment">
 
         <ProgressBar
             android:id="@+id/country_data_load"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:indeterminate="true"
-            android:visibility="gone" />
+            android:visibility="visible"
+            android:layout_marginTop="80dp"/>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/text_data_load"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cargando_datos"
+            android:textColor="@color/fontColor"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/header_card"
+            app:cardBackgroundColor="@color/colorAccent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingStart="32dp"
-            android:paddingTop="24dp"
-            android:paddingEnd="32dp">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
-            <TextView
-                android:id="@+id/date_update"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="28dp"
-                android:gravity="center"
-                android:text="@string/chile"
-                android:textSize="20sp"
-                android:visibility="visible" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/infectados"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="19dp"
-                android:drawableStart="@drawable/infectados_img"
-                android:drawablePadding="10dp"
-                android:text="@string/infectados"
-                android:textSize="18sp"
-                android:visibility="visible" />
+                <TextView
+                    android:id="@+id/date_update"
+                    android:layout_marginTop="27dp"
+                    android:layout_marginBottom="22dp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Fecha de actualización 24/04/2020"/>
+
+                <TextView
+                    android:id="@+id/infectados"
+                    android:layout_marginBottom="40dp"
+                    android:layout_gravity="center"
+                    android:drawableTop="@drawable/infectados_img"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:drawablePadding="10dp"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Casos confirmados"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/whiteColor"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/nuevos_casos"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="19dp"
+                android:layout_gravity="start"
+                android:layout_margin="20dp"
+                android:drawablePadding="20dp"
                 android:drawableStart="@drawable/upload_img"
-                android:drawablePadding="10dp"
-                android:text="@string/nuevos_casos"
                 android:textSize="18sp"
-                android:visibility="visible" />
+                android:textColor="@color/fontColor"
+                tools:text="Nuevos casos: +300"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/whiteColor"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/muertes"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="19dp"
+                android:layout_gravity="start"
+                android:layout_margin="20dp"
+                android:drawablePadding="20dp"
                 android:drawableStart="@drawable/cruz_img"
-                android:drawablePadding="14dp"
-                android:text="@string/muertes"
                 android:textSize="18sp"
-                android:visibility="visible" />
+                android:textColor="@color/fontColor"
+                tools:text="Cantidad de fallecidos: 170"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/whiteColor"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/recuperados"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
                 android:drawableStart="@drawable/health_care_img"
-                android:drawablePadding="10dp"
-                android:text="@string/recuperados"
+                android:layout_gravity="start"
+                android:layout_margin="20dp"
+                android:drawablePadding="20dp"
                 android:textSize="18sp"
-                android:visibility="visible" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="19dp"
-                android:gravity="center_horizontal"
-                android:text="@string/revisar_datos_historicos"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/date_picker"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/whiteColor"
-                android:drawableBottom="@drawable/calendar_img" />
-
-            <!--<CheckBox
-                android:id="@+id/check_notification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/notificar"
                 android:textColor="@color/fontColor"
-                android:textSize="18sp" />-->
+                tools:text="Cantidad de recuperados: 5040"/>
+        </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/date_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/calendar_img"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/text_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/revisar_datos_historicos"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/fontColor"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</ScrollView>
+
+

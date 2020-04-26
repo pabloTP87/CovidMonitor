@@ -4,7 +4,7 @@
     <string name="desc_logo">Logo de la app</string>
     <string name="chile">Chile</string>
     <string name="infectados">Infectados:</string>
-    <string name="nuevos_casos">Nuevos casos:</string>
+    <string name="nuevos_casos">Nuevos 000</string>
     <string name="muertes">Muertes:</string>
     <string name="recuperados">Recuperados:</string>
     <string name="fecha">Fecha de actualización</string>
@@ -15,4 +15,5 @@
     <string name="region">Region</string>
     <string name="pais">País</string>
     <string name="revisar_datos_historicos">Revisar datos históricos</string>
+    <string name="cargando_datos">Cargando datos</string>
 </resources>

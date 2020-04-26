@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -12,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,10 +24,13 @@ import com.covid.covidmonitor.HistoricalDataCountryActivity;
 import com.covid.covidmonitor.Interface.ChileCoronaApi;
 import com.covid.covidmonitor.Model.CountryUpdate;
 import com.covid.covidmonitor.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,12 +40,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PaisFragment extends Fragment {
 
+    private CardView headerCard, cardView1, cardView2, cardView3;
+    private TextView textCalendar;
+    private TextView textDataLoad;
     private TextView infectadosTxt;
     private TextView muertesTxt;
     private TextView recuperadosTxt;
     private TextView fechaTxt;
     private TextView nuevosCasosTxt;
     private ProgressBar dataLoad;
+    private FloatingActionButton showCalendar;
     private Calendar calendar;
     private DatePickerDialog picker;
 
@@ -53,13 +64,20 @@ public class PaisFragment extends Fragment {
         recuperadosTxt = view.findViewById(R.id.recuperados);
         fechaTxt = view.findViewById(R.id.date_update);
         nuevosCasosTxt = view.findViewById(R.id.nuevos_casos);
-
         dataLoad = view.findViewById(R.id.country_data_load);
-
-        Button showCalendar = view.findViewById(R.id.date_picker);
+        showCalendar = view.findViewById(R.id.date_picker);
+        headerCard = view.findViewById(R.id.header_card);
+        cardView1 = view.findViewById(R.id.cardView1);
+        cardView2 = view.findViewById(R.id.cardView2);
+        cardView3 = view.findViewById(R.id.cardView3);
+        textCalendar = view.findViewById(R.id.text_calendar);
+        textDataLoad = view.findViewById(R.id.text_data_load);
 
         showCalendar.setOnClickListener(v -> {
                 calendar = Calendar.getInstance();
+                calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 int month = calendar.get(Calendar.MONTH);
                 int year = calendar.get(Calendar.YEAR);
@@ -67,10 +85,29 @@ public class PaisFragment extends Fragment {
                 picker = new DatePickerDialog(Objects.requireNonNull(getActivity()), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        Log.d("fecha", dayOfMonth+"/"+month+"/"+year);
+                        String calendarDate;
+
+                        if(dayOfMonth <= 9 && month > 8){
+                            calendarDate = (month+1)+ "/" + "0" + dayOfMonth  + "/" + year;
+                            sendHistoricalCountryData(calendarDate);
+
+                        }else if (month <= 8 && dayOfMonth <= 9){
+                            calendarDate = "0" + (month+1)+ "/" + "0" + dayOfMonth + "/" + year;
+                            sendHistoricalCountryData(calendarDate);
+
+                        }else if (month <= 8 && dayOfMonth > 9){
+                            calendarDate = "0" + (month+1) + "/" + dayOfMonth + "/" +  year;
+                            sendHistoricalCountryData(calendarDate);
+
+                        }else {
+                            calendarDate = (month+1) + "/" +dayOfMonth + "/" +  year;
+                            sendHistoricalCountryData(calendarDate);
+                        }
                     }
                 },day,month,year);
+                picker.updateDate(year,month,day);
                 picker.show();
+
         });
 
         getCountryData();
@@ -79,7 +116,7 @@ public class PaisFragment extends Fragment {
     }
 
     private void getCountryData(){
-        dataLoad.setVisibility(View.VISIBLE);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://chile-coronapi.herokuapp.com/api/v3/latest/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -102,10 +139,11 @@ public class PaisFragment extends Fragment {
 
                 assert countryUpdate != null;
 
-                String infectadosLabel = "Infectados: " + countryUpdate.getConfirmed();
-                String muertesLabel = "Muertes: " + countryUpdate.getDeaths();
-                String recuperadosLabel = "Recuperados: " + countryUpdate.getRecovered();
-                String fechaLabel = "Fecha de actualización " + countryUpdate.getDay();
+                String infectadosLabel = "Casos confirmados " + "\n" + countryUpdate.getConfirmed();
+                nuevosCasosTxt.setText("Nuevos casos: +300");
+                String muertesLabel = "Cantidad de fallecidos: " + countryUpdate.getDeaths();
+                String recuperadosLabel = "Cantidad de recuperados: " + countryUpdate.getRecovered();
+                String fechaLabel = "Fecha de actualización " + "\n" + countryUpdate.getDay();
 
                 infectadosTxt.setText(infectadosLabel);
                 muertesTxt.setText(muertesLabel);
@@ -113,6 +151,8 @@ public class PaisFragment extends Fragment {
                 fechaTxt.setText(fechaLabel);
 
                 dataLoad.setVisibility(View.GONE);
+                textDataLoad.setVisibility(View.GONE);
+
                 showView();
             }
 
@@ -124,12 +164,70 @@ public class PaisFragment extends Fragment {
         });
     }
 
-    private void showView(){
+    private void sendHistoricalCountryData(String pickerDate){
 
-        infectadosTxt.setVisibility(View.VISIBLE);
-        muertesTxt.setVisibility(View.VISIBLE);
-        nuevosCasosTxt.setVisibility(View.VISIBLE);
-        recuperadosTxt.setVisibility(View.VISIBLE);
-        fechaTxt.setVisibility(View.VISIBLE);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://chile-coronapi.herokuapp.com/api/v3/historical/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ChileCoronaApi chileCoronaApi = retrofit.create(ChileCoronaApi.class);
+
+        Call<HashMap<String,CountryUpdate>> call = chileCoronaApi.getHistoricalCountry();
+
+        call.enqueue(new Callback<HashMap<String,CountryUpdate>>() {
+            @Override
+            public void onResponse(Call<HashMap<String,CountryUpdate>> call, Response<HashMap<String,CountryUpdate>> response) {
+
+                boolean check = false;
+
+                if(!response.isSuccessful()){
+                    Toast toast = Toast.makeText(getActivity(),"Código" + response.code(), Toast.LENGTH_LONG);
+                    toast.show();
+                }
+
+                HashMap<String, CountryUpdate> data = response.body();
+
+                assert data != null;
+
+                for(String fecha : data.keySet()){
+                    if(fecha.equals(pickerDate)){
+                        check = true;
+                        break;
+                    }
+                }
+
+                if (check){
+
+                    Intent intent = new Intent(getActivity(),HistoricalDataCountryActivity.class);
+                    intent.putExtra("contagiados", Objects.requireNonNull(data.get(pickerDate)).getConfirmed());
+                    intent.putExtra("muertes", data.get(pickerDate).getDeaths());
+                    intent.putExtra("recuperados",data.get(pickerDate).getRecovered());
+                    startActivity(intent);
+                    Log.d("datos", Objects.requireNonNull(data.get(pickerDate)).getDeaths());
+                }else {
+                    Toast toast = Toast.makeText(getActivity(),"No existen datos en esta fecha",Toast.LENGTH_SHORT);
+                    toast.show();
+                    Log.d("check","false");
+                }
+                //assert data != null;
+                //Log.d("datos",data.get("04/21/2020").getConfirmed());
+            }
+
+            @Override
+            public void onFailure(Call<HashMap<String,CountryUpdate>> call, Throwable t) {
+                Toast toast = Toast.makeText(getActivity(),t.getMessage(), Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
+    }
+
+    private void showView(){
+        headerCard.setVisibility(View.VISIBLE);
+        cardView1.setVisibility(View.VISIBLE);
+        cardView2.setVisibility(View.VISIBLE);
+        cardView3.setVisibility(View.VISIBLE);
+        textCalendar.setVisibility(View.VISIBLE);
+        showCalendar.setVisibility(View.VISIBLE);
     }
 }

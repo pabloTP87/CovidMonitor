@@ -6,4 +6,5 @@
     <color name="fontColor">#3D3C3C</color>
     <color name="whiteColor">#ffff</color>
     <color name="background">#F8F8F8</color>
+    <color name="colorCard1">#FF4383</color>
 </resources>
