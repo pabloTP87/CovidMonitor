@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".RegionDataActivity">
+        </activity>
+        <activity
             android:name=".HistoricalDataCountryActivity"
-            android:label="Datos históricos"/>
+            android:label="Datos históricos" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/splashTheme">

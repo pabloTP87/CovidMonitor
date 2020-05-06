@@ -6,27 +6,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/whiteColor"
     tools:context=".HistoricalDataCountryActivity">
 
     <TextView
-        android:id="@+id/txtConfirmados"
-        android:textSize="18sp"
+        android:id="@+id/tittle"
+        android:textSize="28sp"
+        android:textStyle="bold"
         android:textColor="@color/fontColor"
+        tools:text="Cifras"
+        android:text="@string/cifras"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="23dp"/>
 
     <TextView
-        android:id="@+id/txtMuertes"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textColor="@color/fontColor"
+        android:text="@string/fecha_consultada"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/ic_today_black_50dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:layout_marginStart="36dp"
+        android:drawablePadding="17dp"/>
 
     <TextView
-        android:id="@+id/txtRecuperados"
-        android:textSize="18sp"
-        android:textColor="@color/fontColor"
+        android:id="@+id/txt_fecha"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        tools:text="06-05-2020"
+        android:textStyle="bold"
+        android:layout_marginStart="103dp"/>
+
+    <TextView
+        android:textSize="24sp"
+        android:textColor="@color/fontColor"
+        android:text="@string/casos"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/ic_local_hospital_black_50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:layout_marginStart="36dp"
+        android:drawablePadding="17dp"/>
+
+    <TextView
+        android:id="@+id/txt_casos"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="4560"
+        android:textStyle="bold"
+        android:layout_marginStart="103dp"/>
+
+    <TextView
+        android:textSize="24sp"
+        android:textColor="@color/fontColor"
+        android:text="@string/fallecidos"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/ic_local_florist_black_50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:layout_marginStart="36dp"
+        android:drawablePadding="17dp"/>
+
+    <TextView
+        android:id="@+id/txt_fallecidos"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="456"
+        android:textStyle="bold"
+        android:layout_marginStart="103dp"/>
 
 </LinearLayout>

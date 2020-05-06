@@ -202,7 +202,7 @@ public class PaisFragment extends Fragment {
                     Intent intent = new Intent(getActivity(),HistoricalDataCountryActivity.class);
                     intent.putExtra("contagiados", Objects.requireNonNull(data.get(pickerDate)).getConfirmed());
                     intent.putExtra("muertes", data.get(pickerDate).getDeaths());
-                    intent.putExtra("recuperados",data.get(pickerDate).getRecovered());
+                    intent.putExtra("fecha",pickerDate);
                     startActivity(intent);
                     Log.d("datos", Objects.requireNonNull(data.get(pickerDate)).getDeaths());
                 }else {

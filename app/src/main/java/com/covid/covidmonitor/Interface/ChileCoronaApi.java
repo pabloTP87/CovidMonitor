@@ -1,15 +1,11 @@
 package com.covid.covidmonitor.Interface;
 
 import com.covid.covidmonitor.Model.CountryUpdate;
-import com.covid.covidmonitor.Model.DateHistoricalCountry;
+import com.covid.covidmonitor.Model.Region;
 
 import java.util.HashMap;
-import java.util.Map;
-
 import retrofit2.Call;
-import retrofit2.http.Field;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 
 public interface ChileCoronaApi {
 
@@ -19,4 +15,7 @@ public interface ChileCoronaApi {
 
     @GET("nation") // referencia para obtener datos historicos del país
     Call<HashMap<String,CountryUpdate>> getHistoricalCountry();
+
+    @GET("regions")
+    Call<HashMap<String, Region>> getRegionName();
 }
