@@ -30,8 +30,7 @@
             android:textColor="@color/fontColor"
             android:textSize="18sp"
             android:layout_margin="10dp"
-            android:layout_gravity="center"
-            android:gravity="center"/>
+            android:layout_gravity="center" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/header_card"
@@ -96,7 +95,7 @@
                 android:layout_gravity="start"
                 android:layout_margin="20dp"
                 android:drawablePadding="20dp"
-                android:drawableStart="@drawable/upload_img"
+                android:drawableStart="@drawable/ic_hotel_black_24dp"
                 android:textSize="18sp"
                 android:textColor="@color/fontColor"
                 tools:text="Nuevos casos: +300"/>
@@ -121,45 +120,11 @@
                 android:layout_gravity="start"
                 android:layout_margin="20dp"
                 android:drawablePadding="20dp"
-                android:drawableStart="@drawable/cruz_img"
+                android:drawableStart="@drawable/ic_local_florist_black_24dp"
                 android:textSize="18sp"
                 android:textColor="@color/fontColor"
                 tools:text="Cantidad de fallecidos: 170"/>
         </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/whiteColor"
-            app:cardCornerRadius="14dp"
-            app:cardElevation="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/recuperados"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/health_care_img"
-                android:layout_gravity="start"
-                android:layout_margin="20dp"
-                android:drawablePadding="20dp"
-                android:textSize="18sp"
-                android:textColor="@color/fontColor"
-                tools:text="Cantidad de recuperados: 5040"/>
-        </androidx.cardview.widget.CardView>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/date_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/calendar_img"
-            android:layout_marginTop="30dp"
-            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/text_calendar"
@@ -169,10 +134,28 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/fontColor"
             android:textSize="20sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
             android:visibility="gone"/>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/date_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/calendar_img"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/footer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/footer_text"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:textColor="@color/fontColor"
+            android:visibility="gone"
+            android:layout_margin="30dp"/>
     </LinearLayout>
 </ScrollView>
 

@@ -1,5 +1,6 @@
 package com.covid.covidmonitor.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,12 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.covid.covidmonitor.Interface.ChileCoronaApi;
 import com.covid.covidmonitor.Model.Region;
 import com.covid.covidmonitor.Model.RegionList;
 import com.covid.covidmonitor.R;
+import com.covid.covidmonitor.RegionDataActivity;
 import com.covid.covidmonitor.adapter.RegionListAdapter;
 
 import java.util.ArrayList;
@@ -37,6 +41,10 @@ public class RegionFragment extends Fragment implements RegionListAdapter.Region
     private RecyclerView regionRecycler;
     private RecyclerView.Adapter regionListAdapter;
     private RecyclerView.LayoutManager manager;
+
+    private ProgressBar listLoad;
+    private TextView textLoad;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +56,9 @@ public class RegionFragment extends Fragment implements RegionListAdapter.Region
         manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false);
         regionRecycler.addItemDecoration(did);
         regionRecycler.setLayoutManager(manager);
+
+        listLoad = view.findViewById(R.id.region_list_load);
+        textLoad = view.findViewById(R.id.region_text_load);
 
         getRegionData();
 
@@ -83,6 +94,9 @@ public class RegionFragment extends Fragment implements RegionListAdapter.Region
                 }
 
                 initRecycler(regionList);
+                listLoad.setVisibility(View.GONE);
+                textLoad.setVisibility(View.GONE);
+                regionRecycler.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -94,8 +108,10 @@ public class RegionFragment extends Fragment implements RegionListAdapter.Region
 
     @Override
     public void getRegionListClick(int position) {
-        Toast toast = Toast.makeText(getActivity(),regionList.get(position).getId(),Toast.LENGTH_LONG);
-        toast.show();
+        Intent intent = new Intent(getActivity(), RegionDataActivity.class);
+        intent.putExtra("regionId",regionList.get(position).getId());
+        intent.putExtra("regionName",regionList.get(position).getRegionName());
+        startActivity(intent);
     }
 
     private void initRecycler(ArrayList<RegionList> list){

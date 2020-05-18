@@ -11,12 +11,16 @@
     <string name="notificar">Notificar actualización de datos</string>
 
 
-    <string name="region">Region</string>
+    <string name="region">Región</string>
     <string name="pais">País</string>
     <string name="revisar_datos_historicos">Revisar datos históricos</string>
     <string name="cargando_datos">Cargando datos</string>
-    <string name="cifras">Cifras</string>
-    <string name="fecha_consultada">Fecha consultada</string>
+    <string name="cifras">Cifras consultadas</string>
+    <string name="fecha_consultada">Fecha</string>
     <string name="casos">Casos a la fecha</string>
     <string name="fallecidos">Fallecidos</string>
+    <string name="cargando_regiones">Cargando regiones</string>
+    <string name="footer_text">Los datos de contagios de coronavirus (COVID-19)
+        en Chile mostrados en esta aplicación, son fuente oficial del gobierno y el
+        ministerio de salud.</string>
 </resources>

@@ -14,77 +14,134 @@
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/fontColor"
-        tools:text="Cifras"
         android:text="@string/cifras"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:layout_marginTop="23dp"/>
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="40dp"/>
 
-    <TextView
-        android:textSize="24sp"
-        android:textColor="@color/fontColor"
-        android:text="@string/fecha_consultada"
-        android:textStyle="bold"
-        android:drawableStart="@drawable/ic_today_black_50dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:layout_marginStart="36dp"
-        android:drawablePadding="17dp"/>
+        app:cardBackgroundColor="@color/colorCard"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
-    <TextView
-        android:id="@+id/txt_fecha"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimaryDark"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/fontColor"
+                android:text="@string/fecha_consultada"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_today_black_50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:drawablePadding="17dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/txt_fecha"
+                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="06-05-2020"
+                android:layout_marginStart="84dp"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="06-05-2020"
-        android:textStyle="bold"
-        android:layout_marginStart="103dp"/>
+        app:cardBackgroundColor="@color/colorCard"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" >
 
-    <TextView
-        android:textSize="24sp"
-        android:textColor="@color/fontColor"
-        android:text="@string/casos"
-        android:textStyle="bold"
-        android:drawableStart="@drawable/ic_local_hospital_black_50dp"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/fontColor"
+                android:text="@string/casos"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_local_hospital_black_50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="36dp"
+                android:drawablePadding="17dp"/>
+
+            <TextView
+                android:id="@+id/txt_casos"
+                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="4560"
+                android:layout_marginStart="84dp"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:layout_marginStart="36dp"
-        android:drawablePadding="17dp"/>
+        app:cardBackgroundColor="@color/colorCard"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" >
 
-    <TextView
-        android:id="@+id/txt_casos"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="4560"
-        android:textStyle="bold"
-        android:layout_marginStart="103dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:textSize="24sp"
-        android:textColor="@color/fontColor"
-        android:text="@string/fallecidos"
-        android:textStyle="bold"
-        android:drawableStart="@drawable/ic_local_florist_black_50dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:layout_marginStart="36dp"
-        android:drawablePadding="17dp"/>
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/fontColor"
+                android:text="@string/fallecidos"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_local_florist_black_50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="36dp"
+                android:drawablePadding="17dp"/>
 
-    <TextView
-        android:id="@+id/txt_fallecidos"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="456"
-        android:textStyle="bold"
-        android:layout_marginStart="103dp"/>
+            <TextView
+                android:id="@+id/txt_fallecidos"
+                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="456"
+                android:layout_marginStart="84dp"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
