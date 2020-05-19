@@ -4,9 +4,11 @@
       <w>actualidad</w>
       <w>actualización</w>
       <w>actualizados</w>
+      <w>agregado</w>
       <w>agregamos</w>
       <w>agregó</w>
       <w>asignamos</w>
+      <w>asignandole</w>
       <w>atrás</w>
       <w>averiguar</w>
       <w>ayer</w>
@@ -26,6 +28,7 @@
       <w>contagios</w>
       <w>contenedor</w>
       <w>corresponde</w>
+      <w>correspondiente</w>
       <w>covid</w>
       <w>covidmonitor</w>
       <w>creada</w>
@@ -47,6 +50,7 @@
       <w>esconder</w>
       <w>estado</w>
       <w>existen</w>
+      <w>expresión</w>
       <w>fallecidos</w>
       <w>fallo</w>
       <w>fecha</w>
@@ -66,6 +70,7 @@
       <w>infectados</w>
       <w>instancia</w>
       <w>interfaz</w>
+      <w>lanzador</w>
       <w>lista</w>
       <w>listado</w>
       <w>llamada</w>
@@ -76,6 +81,7 @@
       <w>magallanes</w>
       <w>mantener</w>
       <w>menor</w>
+      <w>modificado</w>
       <w>mostramos</w>
       <w>mostrar</w>
       <w>muertes</w>
@@ -101,6 +107,7 @@
       <w>realizar</w>
       <w>recorremos</w>
       <w>recuperados</w>
+      <w>reemplazamos</w>
       <w>referencia</w>
       <w>reflejar</w>
       <w>regiones</w>
@@ -109,6 +116,7 @@
       <w>resultado</w>
       <w>revisar</w>
       <w>sacamos</w>
+      <w>textview</w>
       <w>texview</w>
       <w>todos</w>
       <w>ubicación</w>
@@ -116,6 +124,8 @@
       <w>utilizamos</w>
       <w>versión</w>
       <w>visibilidad</w>
+      <w>ícono</w>
+      <w>última</w>
     </words>
   </dictionary>
 </component>

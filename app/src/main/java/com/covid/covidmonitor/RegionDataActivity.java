@@ -37,6 +37,7 @@ public class RegionDataActivity extends AppCompatActivity {
     private TextView casos;
     private TextView fallecidos;
     private TextView textLoad;
+    private TextView fecha;
 
     private CardView tittleCard, card_1, card_2, card_3;
     private ProgressBar progressBar;
@@ -47,7 +48,7 @@ public class RegionDataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_region_data);
 
         TextView regionName = findViewById(R.id.regionName_tittle);
-        TextView fecha = findViewById(R.id.txt_fecha);
+        fecha = findViewById(R.id.txt_fecha);
 
         poblacion = findViewById(R.id.poblacion);
         casos = findViewById(R.id.casos);
@@ -62,9 +63,9 @@ public class RegionDataActivity extends AppCompatActivity {
         regionName.setText(getIntent().getStringExtra("regionName"));
         int regionId = Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("regionId")));
 
-        Date c = Calendar.getInstance().getTime();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-        fecha.setText(df.format(c));
+        //Date c = Calendar.getInstance().getTime();
+        //SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        //fecha.setText(df.format(c));
 
         // se muestra el botón arrow back en el activity
         ActionBar actionBar = getSupportActionBar();
@@ -100,6 +101,11 @@ public class RegionDataActivity extends AppCompatActivity {
                 poblacion.setText("Pob. " + pob);
 
                 HashMap<String,RegionUpdate> data = dataRegion.getRegionData();
+
+                // reemplazamos los brackets "[keySet]" con replaceAll asignandole la expresión regular correspondiente
+                String dateKey = data.keySet().toString().replaceAll("[\\[\\]]","");
+                // asignamos el key del hashmap ("Fecha actual") al Textview fecha.
+                fecha.setText(dateKey);
 
                 for (String id : data.keySet()){
                     casos.setText(String.valueOf(data.get(id).getConfirmed()));
