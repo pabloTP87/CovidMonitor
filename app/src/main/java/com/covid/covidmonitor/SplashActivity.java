@@ -15,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // new runnable lambda averiguar
+        // new runnable lambda
         handler.postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this,MainActivity.class);
             startActivity(intent);
